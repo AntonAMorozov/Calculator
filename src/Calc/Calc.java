@@ -38,7 +38,11 @@ public class Calc {
             if (arabicNumber) {
                 System.out.println("Ответ: " + s);}
             else {
+                if (s <=0){System.out.println("Ответ: " + "NULL");}
+                    else {
                 System.out.println("Ответ: " + ArabicToRoman.aRT(s));
+                }
+
             }
         }
         catch (ArithmeticException e) {
