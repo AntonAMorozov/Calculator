@@ -6,11 +6,10 @@ public class Calc {
 
     private static boolean arabicNumber = true;
 
-
     public static  void sum (int a, int b) {
         int s = a + b;
         if (arabicNumber) {
-        System.out.println("Ответ: " + s);}
+            System.out.println("Ответ: " + s);}
         else {
             System.out.println("Ответ: " + ArabicToRoman.aRT(s));
         }
@@ -23,7 +22,6 @@ public class Calc {
             System.out.println("Ответ: " + ArabicToRoman.aRT(s));
         }
     }
-
     public static  void mul (int a, int b) {
         int s = a * b;
         if (arabicNumber) {
@@ -39,17 +37,16 @@ public class Calc {
                 System.out.println("Ответ: " + s);}
             else {
                 if (s <=0){System.out.println("Ответ: " + "NULL");}
-                    else {
-                System.out.println("Ответ: " + ArabicToRoman.aRT(s));
+                else {
+                    System.out.println("Ответ: " + ArabicToRoman.aRT(s));
                 }
-
             }
         }
         catch (ArithmeticException e) {
             System.out.print("Деление на 0! ");
         }
     }
-
+    
     private static String[] pars(String equation) {
         String[] result = equation.split(" ");
         if (result.length != 3) {
@@ -89,23 +86,13 @@ public class Calc {
         }
         else
         {if ((RomanToArabic.rTA(result[0]) <=0) || (RomanToArabic.rTA(result[2]) <=0)) throw new Exception("На ввод принимаются только числа от 1 до 10");}
-
-
-        if (operation.equals("+")) {
-            Calc.sum(num1,num2);
-        }
-        else if (operation.equals("-")) {
-            Calc.sub(num1,num2);
-        }
-        else if (operation.equals("*")) {
-            Calc.mul(num1,num2);
-        }
-        else if (operation.equals("/")) {
-            Calc.div(num1,num2);
-        }
-        else {
-            throw new Exception("Некорректная операция");
+        
+        switch (operation) {
+            case "+" -> Calc.sum(num1, num2);
+            case "-" -> Calc.sub(num1, num2);
+            case "*" -> Calc.mul(num1, num2);
+            case "/" -> Calc.div(num1, num2);
+            default -> throw new Exception("Некорректная операция");
         }
     }
-
 }
