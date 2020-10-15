@@ -102,8 +102,9 @@ public class Calc {
         }
         else if (operation.equals("/")) {
             Calc.div(num1,num2);
-
-
+        }
+        else {
+            throw new Exception("Некорректная операция");
         }
     }
 
